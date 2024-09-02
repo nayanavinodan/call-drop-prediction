@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            background-image: url('static/image/pngtree-blue-telephone.jpg'); 
+            background-size: cover;
+            color: rgba(241, 231, 231, 0.989);
+            font-family: Arial, sans-serif;
+        }
+        .result-container {
+            background-color: rgba(5, 4, 4, 0.808);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            margin: auto;
+            margin-top: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h2>Prediction Result</h2>
+        <p>The Call Drop Category is: <strong>{{ prediction }}</strong></p>
+        <a href="/">Make another prediction</a>
+    </div>
+</body>
+</html>

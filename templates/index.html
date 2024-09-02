@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call Drop Prediction</title>
+    <style>
+        body {
+            background-image: url('../static/image/phone-old.jpg');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: aliceblue;
+            text-align: center;
+            margin-top: 50px;
+        }
+        h1 {
+            color: black;
+        }
+        form {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        label, select, input {
+            display: block;
+            margin: 10px 0;
+        }
+        select, input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+        }
+        input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Predict Call Drop Category</h1>
+    <form action="/predict" method="post">
+        <label for="operator">Operator</label>
+        <select name="operator" id="operator" required>
+            <option value="5">RJio</option>
+            <option value="0">Airtel</option>
+            <option value="6">Vodafone</option>
+            <option value="2">Idea</option>
+            <option value="1">BSNL</option>
+            <option value="3">MTNL</option>
+            <option value="4">Other</option>
+        </select>
+
+        <label for="in_out_travelling">In Out Travelling</label>
+        <select name="in_out_travelling" id="in_out_travelling" required>
+            <option value="2">Indoor</option>
+            <option value="1">Outdoor</option>
+            <option value="0">Travelling</option>
+        </select>
+
+        <label for="network_type">Network Type</label>
+        <select name="network_type" id="network_type" required>
+            <option value="0">4G</option>
+            <option value="1">3G</option>
+            <option value="2">2G</option>
+        </select>
+
+        <label for="rating">Rating</label>
+        <select name="rating" id="rating" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        
+
+        <label for="latitude">Latitude</label>
+        <input type="text" name="latitude" id="latitude" required>
+
+        <label for="longitude">Longitude</label>
+        <input type="text" name="longitude" id="longitude" required>
+
+        <label for="state_name">State Name</label>
+        <select name="state_name" id="state_name" required>
+            <option value="1">Andhra Pradesh</option>
+            <option value="2">Assam</option>
+            <option value="3">Bihar</option>
+            <option value="5">Chhattisgarh</option>
+            <option value="6">Goa</option>
+            <option value="7">Gujarat</option>
+            <option value="8">Haryana</option>
+            <option value="9">Himachal Pradesh</option>
+            <option value="11">Karnataka</option>
+            <option value="12">Kerala</option>
+            <option value="14">Madhya Pradesh</option>
+            <option value="15">Maharashtra</option>
+            <option value="17">Odisha</option>
+            <option value="18">Punjab</option>
+            <option value="19">Rajasthan</option>
+            <option value="20">Tamil Nadu</option>
+            <option value="21">Telangana</option>
+            <option value="24">Uttar Pradesh</option>
+            <option value="23">Uttarakhand</option>
+            <option value="24">West Bengal</option>
+            <option value="0">Andaman and Nicobar Islands</option>
+            <option value="4">Chandigarh</option>
+            <option value="16">NCT</option>
+            <option value="10">Jharkhand></option>
+            <option value="13">Lower Saxony</option>
+        </select>
+
+        <label for="call_success_rate">Call Success Rate (%)</label>
+        <input type="text" name="call_success_rate" id="call_success_rate" required>
+
+        <label for="time_of_day">Time of Day</label>
+        <select name="time_of_day" id="time_of_day" required>
+            <option value="0">Morning</option>
+            <option value="1">Afternoon</option>
+            <option value="2">Evening</option>
+            <option value="3">Night</option>
+        </select>
+        
+
+        <label for="complaint_filed">Complaint Filed (Yes/No)</label>
+        <select name="complaint_filed" id="complaint_filed" required>
+            <option value="0">Yes</option>
+            <option value="1">No</option>
+        </select>
+
+        <label for="roaming">Roaming (Yes/No)</label>
+        <select name="roaming" id="roaming" required>
+            <option value="0">Yes</option>
+            <option value="1">No</option>
+        </select>
+        
+        <!-- Call Type Dropdown -->
+        <label for="call_type">Call Type:</label>
+        <select id="call_type" name="call_type" required>
+            <option value="0">Voice</option>
+            <option value="1">Video</option>
+        </select>
+
+        <input type="submit" value="Predict">
+    </form>
+</body>
+</html>
